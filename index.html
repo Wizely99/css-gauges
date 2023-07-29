@@ -1,0 +1,113 @@
+<style>
+  .skill {
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .outer {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  }
+
+  .inner {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: inset 6px 6px 10px -1px rgba(0, 0, 0, 0.15), inset -6px -6px 10px -1px rgba(255, 255, 255, 0.7), -6px -6px 10px -1px rgba(255, 255, 255, 0.7), -6px -6px 10px -1px rgba(255, 255, 255, 0.7), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+
+  }
+
+  #number {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+
+  circle {
+    fill: none;
+    stroke: url(#GradientColor );
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    animation: anim 2s linear forwards;
+
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+  }
+
+  @keyframes anim {
+    100% {
+      stroke-dashoffset: 165;
+
+    }
+
+  }
+</style>
+
+
+
+<script>
+  $({
+    someValue: 0
+  }).animate({
+    someValue: 65
+  }, {
+    duration: 2800,
+    easing: 'swing', // can be anything
+    step: function () { // called on every step
+      // Update the element's text with rounded-up value:
+      $('#number').text(Math.round(this.someValue).toLocaleString('en-US') + "%");
+    },
+    complete: function () { // called at end step
+      // Update the element's text with rounded-up value:
+      $('#number').text(result.extras.faults.toLocaleString('en-US') + "%");
+    }
+  });
+</script>
+
+
+html
+
+
+
+    <div class="skill">
+      <div class="outer">
+        <div class="inner">
+          <div id="number">65</div>
+
+        </div>
+      </div>
+
+
+
+
+
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+        <defs>
+          <linearGradient id="GradientColor">
+            <stop offset="0%" stop-color="#e91e63" />
+            <stop offset="100%" stop-color="#673ab7" />
+          </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+      </svg>
+
+
+
+
+    </div>
